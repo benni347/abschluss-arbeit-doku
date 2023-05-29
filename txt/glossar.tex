@@ -1,0 +1,41 @@
+\section{Glossar}
+\addcontentsline{toc}{subsection}{[a] HTML (Hypertext Markup Language)}
+\subsection*{[a] HTML (Hypertext Markup Language)}
+\label{glo:html1}
+HTML ist eine standardisierte Auszeichnungssprache, die zur Erstellung von Webseiten auf dem World Wide Web verwendet wird. HTML verwendet Tags, um Elemente auf einer Webseite zu definieren, wie Textabschnitte, Bilder, Tabellen, Links und vieles mehr. \\\\
+HTML ist nicht programmierbar und beinhaltet keine Logik. Es dient ausschließlich der Strukturierung und semantischen Auszeichnung von Inhalten. Die visuelle Darstellung von HTML-Inhalten wird in der Regel mit CSS gesteuert, während JavaScript häufig für interaktive und dynamische Aspekte von Webseiten verwendet wird. HTML ist ein wesentlicher Teil des Web-Entwicklungs-Stacks, zusammen mit CSS und JavaScript.
+\addcontentsline{toc}{subsection}{[b] CSS (Cascading Style Sheets)}
+\subsection*{[b] CSS (Cascading Style Sheets)}
+\label{glo:css}
+CSS ist eine Stylesheet-Sprache, die zur Beschreibung der Darstellung eines Dokuments, das in HTML oder XML (einschließlich XML-Dialekten wie SVG, MathML oder XHTML) geschrieben ist, verwendet wird. CSS beschreibt, wie Elemente auf der Bildschirmfläche gerendert werden sollten, wenn sie in Medientypen wie Bildschirm, Druck, Sprache oder Braille interpretiert werden.\\\\
+Es ermöglicht Entwicklern und Designern, das Aussehen und Layout von Webseiten zu steuern, einschließlich Aspekten wie Farben, Schriftarten, Layouts und Responsivität auf verschiedenen Bildschirmgrößen. CSS bietet eine effiziente Methode, um Stile auf mehrere Seiten oder Elemente gleichzeitig anzuwenden, indem es "Kaskaden" von Stilen ermöglicht, die auf mehrere Elemente angewendet und überschrieben werden können.
+\addcontentsline{toc}{subsection}{[c] JS (JavaScript)}
+\subsection*{[c] JS (JavaScript)}
+\label{glo:js}
+JavaScript ist eine dynamische, interpretierte Hochsprache, die insbesondere in Webbrowsern genutzt wird, um Benutzerinteraktionen zu ermöglichen, dynamische Inhalte zu erzeugen und Webanwendungen in Echtzeit zu steuern. JavaScript ist nicht zu verwechseln mit Java, es handelt sich um zwei völlig unterschiedliche Sprachen.\\\\
+Ursprünglich wurde JavaScript entwickelt, um HTML-Seiten interaktiver zu gestalten und Webanwendungen zu erstellen, die in einem Webbrowser laufen. Es ermöglicht Funktionen wie Formularvalidierung, dynamische Änderungen von Webseitenelementen, AJAX-Anfragen, Animationen und vieles mehr.\\\\
+JavaScript kann sowohl auf der Clientseite (also im Webbrowser des Nutzers) als auch auf der Serverseite ausgeführt werden. Node.js ist eine populäre JavaScript-Laufzeitumgebung, die eine serverseitige Ausführung von JavaScript ermöglicht.\\\\
+JavaScript unterstützt verschiedene Programmierparadigmen, darunter ereignisgesteuerte, funktionale und objektorientierte Programmierung. Es ist Teil des Kern-Webtechnologie-Trios, das auch HTML und CSS umfasst.
+\addcontentsline{toc}{subsection}{[d] blake2b\_512}
+\subsection*{[d] blake2b\_512}
+\label{glo:blake}
+BLAKE2b\_512: BLAKE2 ist eine kryptografische Hash-Funktion, die entworfen wurde, um schneller und sicherer zu sein als andere Hash-Funktionen wie SHA-256. Sie könnten BLAKE2b\_512 verwenden, um die Nachrichten in Ihrem Protokoll zu hashen, bevor Sie sie mit AES verschlüsseln.
+\addcontentsline{toc}{subsection}{[e] Elliptische-Kurven-Kryptographie (ECC)}
+\subsection*{[e] Elliptische-Kurven-Kryptographie (ECC)}
+\label{glo:ecc}
+Elliptische-Kurven-Kryptographie (ECC) ist ein moderner Ansatz für öffentliche \\
+Schlüsselkryptographie, die auf der Mathematik elliptischer Kurven basiert.
+ECC bietet im Vergleich zu herkömmlichen kryptographischen Verfahren wie RSA oder Diffie-Hellman eine ähnliche Sicherheit bei kürzeren Schlüssellängen, was zu schnelleren und effizienteren Implementierungen führt.
+ECC wird in verschiedenen Anwendungen eingesetzt, wie beispielsweise in digitalen Signaturen, Schlüsselaustauschprotokollen und Verschlüsselungssystemen.
+\addcontentsline{toc}{subsection}{[f] AES}
+\subsection*{[f] AES}
+\label{glo:aes}
+Advanced Encryption Standard (AES): AES ist ein symmetrischer Verschlüsselungsalgorithmus, der weit verbreitet für die Datenverschlüsselung verwendet wird. Sie könnten AES verwenden, um die Nachrichten in Ihrem Protokoll nach dem Hashen mit BLAKE2b\_512 zu verschlüsseln.
+\addcontentsline{toc}{subsection}{[g] Crystal-dilithium}
+\subsection*{[g] Crystal-dilithium}
+\label{glo:crystal-dilithium}
+Der Crystal-Dilithium \cite{crystal} Algorithmus ist ein Post-Quantum-Kryptosystem, das für digitale Signaturen und Verschlüsselung verwendet wird. Im Gegensatz zu herkömmlichen Kryptosystemen, die auf der Schwierigkeit der Faktorisierung großer Zahlen oder der diskreten Logarithmen basieren, beruht der Crystal-Dilithium Algorithmus auf der Schwierigkeit, bestimmte mathematische Probleme in Gittern zu lösen.\\
+Das Kryptosystem verwendet zwei Arten von Schlüsseln: einen öffentlichen Schlüssel für die Verschlüsselung und die Überprüfung von Signaturen sowie einen privaten Schlüssel für die Entschlüsselung und das Signieren von Nachrichten. Der Algorithmus verwendet auch eine sogenannte "Trapdoor-Funktion", die es ermöglicht, den öffentlichen Schlüssel so zu konstruieren, dass er schwer zu knacken ist, selbst wenn der Angreifer den privaten Schlüssel besitzt.\\
+Um eine Nachricht mit dem Crystal-Dilithium Algorithmus zu verschlüsseln, wird der öffentliche Schlüssel des Empfängers verwendet. Der Absender verschlüsselt die Nachricht mit diesem Schlüssel und sendet sie an den Empfänger. Um die Nachricht zu entschlüsseln, verwendet der Empfänger seinen privaten Schlüssel.\\
+Elliptische-Kurven-Kryptographie (ECC) ist ein moderner Ansatz für öffentliche Schlüsselkryptographie, der auf der Mathematik elliptischer Kurven basiert. ECC bietet im Vergleich zu herkömmlichen kryptographischen Verfahren wie RSA oder Diffie-Hellman eine ähnliche Sicherheit bei kürzeren Schlüssellängen, was zu schnelleren und effizienteren Implementierungen führt. ECC wird in verschiedenen Anwendungen eingesetzt, wie beispielsweise in digitalen Signaturen, Schlüsselaustauschprotokollen und Verschlüsselungssystemen.\\
+Der Crystal-Dilithium Algorithmus wird als ein vielversprechender Kandidat für Post-Quantum-Kryptographie angesehen, da er resistent gegen Angriffe mit Quantencomputern sein soll.\cite{poepelmann2018crystal}\cite{10.1145/3319535}
