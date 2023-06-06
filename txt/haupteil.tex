@@ -1,109 +1,107 @@
 \section{Hauptteil}
-\subsection{Meilensteine}
-Zu Beginn des Projekts haben wir Meilensteine festgelegt, die zeitliche Ziele enthalten, die zu einem bestimmten Zeitpunkt erreicht werden müssen.
-Diese Ziele können vielfältig sein, von einfacheren Aufgaben wie der Recherche von Frameworks für Linux, Windows und Android bis hin zu komplexeren und vielfältigeren Zielen wie der Implementierung von Nachrichtenversand und Anrufen.
-Im ersten Anhang finden Sie meine vollständige Meilensteinsetzung. \\\\
-Gemäss meiner Meilensteinsetzung war meine erste Aufgabe, Go im Hinblick auf
-GUI-Entwicklung zu erlernen. Für das Windows-Framework habe ich mich für Wails \cite{wails} entschieden, während ich mich für Linux für GTK entschieden habe.
-Ursprünglich wollte ich QT \cite{qt} für Linux nutzen, aber es konnte nicht richtig kompiliert werden, da das von mir gewünschte Framework veraltet war. Deshalb habe ich mich für Gogtk3 \cite{gogtk3} entschieden.
-\subsection{Funktionen, Elementtypen und Variabeln in Go}
-\subsubsection{Eine Einführung in die verschiedenen Variablentypen in Go}
-In Go gibt es vielfältige Variabletypen, darunter Strings, Integers und Unsigned Integers. In diesem Abschnitt werde ich versuchen, diese auf möglichst einfache und kompakte Weise zu erläutern. Beginnen wir mit Strings: Strings in Go können jeden beliebigen Wert aufnehmen, es muss nicht zwangsläufig UTF-8 sein, es könnte jeglicher Wert sein.\\\\
-Ein Integer hingegen kann nur Zahlenwerte innerhalb des definierten Bereichs aufnehmen. Hierbei muss berücksichtigt werden, ob man einen int8 (Byte), int16, int32 oder int64 definiert, da jeder dieser Typen einen anderen Wertebereich besitzt. Ein int8 reicht von -128 bis 127, ein int16 von -32768 bis 32767, ein int32 von -2147483648 bis 2147483647 und ein int64 von -9223372036854775808 bis 9223372036854775807.\\\\
-Darüber hinaus gibt es noch Unsigned Integers, die nur Werte grösser oder gleich Null speichern können, und deren Wertebereich jeweils von 0 bis zur Summe aus der negativen und der positiven Zahl der entsprechenden Integer-Typen reicht.\\\\
-Es gibt auch noch Gleitkommazahlen, Slices und viele weitere Typen. Für ausführlichere Informationen verweisse ich euch auf die Golang Spezifikationen\footnote{Golang Spezifikationen: https://go.dev/ref/spec}.
-\subsubsection{Definition und Verwendung von Variabeln in Go}
-Es existieren zahlreiche Methoden zur Definition von Variablen in Go. Unter anderem kann man eine Variable vorab deklarieren, wie nachstehend dargestellt:
+\subsection{Projektmeilensteine}
+Zu Projektbeginn wurden eine Reihe von Meilensteinen definiert, welche zeitgebundene Ziele repräsentieren, die zu spezifizierten Zeitpunkten erreicht werden sollten. Die Natur dieser Ziele reicht von eher grundlegenden Aufgaben, etwa der Evaluierung von Frameworks für Linux, Windows und Android, bis hin zu anspruchsvolleren und diversifizierten Zielen, wie etwa der Implementierung von Nachrichtenversand und Anruf-Funktionalitäten. Die vollständige Auflistung der definierten Meilensteine ist im ersten Anhang einsehbar.\\
+Gemäss der Meilensteinplanung galt die initiale Aufgabe der Erlangung von Kompetenzen in Go bezüglich der GUI-Entwicklung. Für das Windows-Framework fiel die Wahl auf Wails \cite{wails}, während für Linux GTK als geeignet erachtet wurde. Ursprünglich war die Verwendung von QT \cite{qt} für Linux vorgesehen, jedoch stellten Kompilationsprobleme aufgrund von Inkompatibilitäten mit dem angestrebten, jedoch veralteten Framework ein Hindernis dar. Folglich wurde Gogtk3 \cite{gogtk3} als Ersatz ausgewählt.
+\subsection{Funktionen, Datentypen und Variablen in Go}
+\subsubsection{Eine Einführung in die diversen Variablentypen in Go}
+Go bietet eine Vielzahl an Variablentypen, einschliesslich Zeichenketten (Strings), Ganzzahlen (Integers) und vorzeichenlosen Ganzzahlen (Unsigned Integers). Im Folgenden erfolgt ein Versuch, diese in einer möglichst zugänglichen und prägnanten Form zu erklären.
+
+Zeichenketten (Strings)\\
+In Go kann ein String jeden beliebigen Wert repräsentieren, nicht notwendigerweise UTF-8 kodiert, sondern jeglichen vorstellbaren Wert.
+
+Ganzzahl (Integer)\\
+Ein Integer hingegen ist auf Zahlenwerte innerhalb eines definierten Bereichs begrenzt. Hierbei ist zu berücksichtigen, ob ein int8 (Byte), int16, int32 oder int64 definiert wird, da jeder dieser Typen einen spezifischen Wertebereich umfasst. Ein int8 erstreckt sich von -128 bis 127, ein int16 von -32'768 bis 32'767, ein int32 von -2'147'483'648 bis 2'147'483'647 und ein int64 von -9'223'372'036'854'775'808 bis 9'223'372'036'854'775'807.
+
+Vorzeichenlose Ganzzahlen (Unsigned Integers)\\
+Darüber hinaus existieren vorzeichenlose Ganzzahlen, die lediglich Werte grösser oder gleich Null speichern können und deren Wertebereich jeweils von 0 bis zur Summe aus der negativen und der positiven Zahl der entsprechenden Integer-Typen reicht.\\
+Es existieren darüber hinaus auch Gleitkommazahlen, Slices und zahlreiche weitere Typen. Für detailliertere Informationen wird auf die Golang-Spezifikationen\footnote{Golang-Spezifikationen: https://go.dev/ref/spec} verwiesen.
+\subsubsection{Deklaration und Verwendung von Variablen in Go}
+Die Methodik zur Deklaration von Variablen in Go offeriert eine Vielzahl an Möglichkeiten. Eine Deklaration der Variable könnte beispielsweise auf folgende Art und Weise erfolgen:
 \begin{lstlisting}
 var name string
 \end{lstlisting}
-Dieser Codeausschnitt deklariert eine Variable vom Typ String mit dem Namen "name". Für die Nutzung in einem Programm könnte man sie wie folgt einsetzen:
+Obiges Codefragment demonstriert die Deklaration einer String-Variable mit dem Namen "name". Um sie innerhalb eines Programms einzusetzen, könnte folgende Implementierung herangezogen werden:
 \begin{lstlisting}
 name = fmt.Sprintf("Cedric")
 \end{lstlisting}
-Allerdings habe ich diesen Ansatz nur sporadisch genutzt, da man hierfür zunächst den Typ festlegen muss. Deshalb habe ich meistens die dynamische Variablendeklaration verwendet, die eine Variable vom Typ "string" mit dem Namen "name" wie folgt definiert:
+Trotzdem war dieser Ansatz eher sporadisch in Gebrauch, da es notwendig war, im Voraus den Typ der Variable festzulegen. In den meisten Fällen wurde daher die dynamische Variablendeklaration verwendet, welche eine Variable des Typs "string" unter dem Namen "name" wie nachstehend definiert:
 \begin{lstlisting}
 name := fmt.Sprintf("Cedric")
 \end{lstlisting}
-\subsubsection{Definition und Verwendung von Funktionen in Go}
-Zur Definition einer Funktion in Go benötigt man das Schlüsselwort "func", gefolgt von dem Namen der Funktion. Für eine Funktion namens "helloWorld" könnte man das wie folgt formulieren:
+\subsubsection{Deklaration und Verwendung von Funktionen in Go}
+Die Deklaration einer Funktion in Go erfordert die Verwendung des Schlüsselworts "func", gefolgt vom Namen der Funktion. Für eine Funktion namens "helloWorld" könnte die Formulierung beispielsweise so aussehen:
 \begin{lstlisting}
 func helloWorld() {}
 \end{lstlisting}
-Die runden Klammern stehen für die Parameterliste und die geschweiften Klammern für den Funktionskörper. Um einen Parameter des Typs String mit dem Namen "name" hinzuzufügen, der mit "Hallo" zusammengefügt und zurückgegeben wird, wäre der entsprechende Code folgender:
+Die runden Klammern repräsentieren die Parameterliste, die geschweiften Klammern den Funktionskörper. Zur Hinzufügung eines Parameters vom Typ String mit dem Namen "name", welcher mit "Hallo" kombiniert und zurückgegeben wird, sähe der zugehörige Code folgendermassen aus:
 \begin{lstlisting}
 func helloWorld(name string) {
-  fmt.Printf("Hallo, %s", name)
+    fmt.Printf("Hallo, %s", name)
 }
 \end{lstlisting}
-Dies ist eine Funktion, die lediglich den Namen auf der Standardausgabe ausgibt. Es ist jedoch auch möglich, dass Funktionen Werte zurückgeben. In diesem Fall muss der Rückgabewert in der Funktionsdeklaration angegeben und vorab mit dem Schlüsselwort "return" geschrieben werden, was etwa so aussehen könnte:
+Dies ist eine Funktion, die lediglich den Namen auf der Standardausgabe ausgibt. Es besteht jedoch auch die Möglichkeit, dass Funktionen Werte zurückgeben. In diesem Fall muss der Rückgabewert in der Funktionsdeklaration angegeben und vorab mit dem Schlüsselwort "return" notiert werden, was etwa so aussehen könnte:
 \begin{lstlisting}
 func helloWorld(name string) string {
-  return fmt.Sprintf("Hallo, %s", name)
+    return fmt.Sprintf("Hallo, %s", name)
 }
 \end{lstlisting}
-\subsection{Die ersten Schritte}
-Wie bereits erwähnt, bestand meine erste Aufgabe darin, GUI-Frameworks zu recherchieren. Meine zweite Aufgabe war die Erstellung einer einfachen Anwendung mit einem Texteingabefeld.
-\begin{figure}[h]
+\subsection{Erste Schritte}
+Die anfängliche Aufgabe war geprägt von der Recherche zu GUI-Frameworks. Die darauf folgende Aufgabe bestand in der Erstellung einer rudimentären Anwendung mit einem Texteingabefeld.
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=0.5\textwidth]{txt/pictures/simple_window.png}
 \caption{Ein GTK-Fenster, das ein Textfeld beinhaltet.}
 \label{fig:example}
 \end{figure}
-\\
-Da dies mein erstes Programm war, wollte ich es nicht zu kompliziert gestalten. Das Programm gibt den Text aus dem Eingabefeld auf stdout aus.
-\subsection{GUI entscheid}
+Die Einfachheit stand im Fokus des ersten Programms, welches den Text aus dem Eingabefeld auf stdout ausgibt.
+\subsection{Entscheidung bezüglich der GUI}
 \subsubsection{Wails als GUI Framework}
-Eine gewisse Zeit lang präferierte ich das GUI-Entwicklungswerkzeug namens Wails, konnte mich jedoch nicht endgültig dafür entscheiden. Dennoch konnte ich meine bestehende Gtk-Anwendung innerhalb von lediglich zwei Stunden komplett umgestalten, ein Prozess, der in Gtk ganze drei Tage beansprucht hätte. Ein zusätzlicher Nutzen von Wails besteht darin, dass man JavaScript und HTML für die Fenstergestaltung einsetzen kann. Darüber hinaus offeriert Wails eine geschätzte Funktion mit der Bezeichnung 'Automatische Neukompilierungen' \cite{wailsAutoRebuild}, welche es mir ermöglicht, Code-Modifikationen vorzunehmen und das Programm automatisch zu aktualisieren. Von Linux aus ist es ferner einfacher, für Windows und MacOSX zu kompilieren. In einem späteren Abschnitt werde ich detaillierter auf die Gründe eingehen, warum ich von Wails zu Fyne gewechselt bin.
+Für eine gewisse Zeitperiode wurde das GUI-Entwicklungswerkzeug Wails favorisiert, jedoch erfolgte keine abschliessende Entscheidung zu dessen Gunsten. Nichtsdestotrotz konnte die existierende Gtk-Anwendung innerhalb von lediglich zwei Stunden komplett umgestaltet werden - ein Prozess, der mit Gtk insgesamt drei Tage in Anspruch genommen hat. Ein weiterer Vorteil von Wails ist die Möglichkeit, JavaScript und HTML zur Gestaltung des Fensters zu verwenden. Zusätzlich bietet Wails eine geschätzte Funktion namens 'Automatische Neukompilierungen' \cite{wailsAutoRebuild}, welche Änderungen am Code vornimmt und das Programm automatisch aktualisiert. Von Linux aus ist es zudem einfacher, für Windows und MacOSX zu kompilieren. In einem späteren Abschnitt werde ich detaillierter auf die Gründe eingehen, warum ich von Wails zu Fyne gewechselt bin.
 \subsubsection{Fyne als GUI-Framework}
-Letztendlich habe ich mich für Fyne \cite{fyne-web} entschieden, das ich nunmehr auch finanziell unterstütze (siehe den Zweiten Anhang für die Quittung), da es mich aufgrund seiner herausragenden Eigenschaften überzeugt hat. Indem ich nun ein Framework verwende, das meinen Code nicht in eine andere Programmiersprache kompilieren muss, steht mir die Möglichkeit offen, sämtliche Go-Funktionen sowie Bibliotheken zu nutzen. Dies eröffnet mir den Weg, komplexere Anwendungen zu erstellen. Darüber hinaus ermöglicht mir Fyne, nicht nur für Windows/Linux, wie bei Wails, sondern auch für Android zu kompilieren. Dies hat den Vorteil, dass ich lediglich eine Codebasis pflegen muss, anstatt zwei separate zu schreiben.
+Die finale Entscheidung fiel zugunsten von Fyne \cite{fyne-web}, welches nun auch finanziell unterstützt wird (siehe Anhang 2 für den Beleg), da es durch herausragende Eigenschaften überzeugen konnte. Die Verwendung eines Frameworks, das meinen Code nicht in eine andere Sprache kompiliert, ermöglicht die Nutzung aller Go-Funktionen und -Bibliotheken. Dies ebnet den Weg für die Erstellung komplexerer Anwendungen. Darüber hinaus erlaubt Fyne nicht nur die Kompilierung für Windows/Linux, wie bei Wails, sondern auch für Android. Dies hat den Vorteil, dass lediglich eine Codebasis gepflegt werden muss, anstatt zwei separate zu unterhalten.
 \subsection{Erstes Projekt}
-Mein erstes Projekt mit dem Wails-Framework war eine einfache plattformübergreifende Wetter-App unter Verwendung der OpenWeatherAPI. Die App ist nur für die Stadt Winterthur verfügbar, da es schwierig ist, den GPS-Standort in Go zu ermitteln, und zu dem ich dies auch nicht in meinem Projekt brauche, da dass die Privatsphäre minimiert.
+Das erste Projekt unter Verwendung des Wails-Frameworks war eine einfache plattformübergreifende Wetter-App, die die OpenWeatherAPI verwendet. Die App ist ausschliesslich für die Stadt Winterthur verfügbar, da es schwierig ist, den GPS-Standort in Go zu ermitteln, und dies auch nicht in dem Projekt benötigt wird, da dies die Privatsphäre einschränkt.
 \subsection{Verschlüsselungs-Stack}
-Mein geplanter Verschlüsselungs-Stack soll die folgenden Algorithmen nutzen: \hyperref[glo:blake]{\(blake2b\_512^{[d]}\)}, \hyperref[glo:ecc]{\(ECC^{[e]}\)}, \hyperref[glo:aes]{\(AES^{[f]}\)} und \hyperref[glo:crystal-dilithium]{\(CRYSTAL-Dilithium^{[g]}\)}. 
+Der geplante Verschlüsselungs-Stack soll die folgenden Algorithmen verwenden: \hyperref[glo:blake]{\(blake2b\_512^{[d]}\)}, \hyperref[glo:ecc]{\(ECC^{[e]}\)}, \hyperref[glo:aes]{\(AES^{[f]}\)} und \hyperref[glo:crystal-dilithium]{\(CRYSTAL-Dilithium^{[g]}\)}.
 \\
-Ich habe mich für einen derart komplexen Verschlüsselungs-Stack entschieden, da mein Messenger höchsten Wert auf Sicherheit und Privatsphäre legt. Deshalb habe ich einen Algorithmus integriert, der auch gegenüber Angriffen durch Quantencomputer noch zuverlässig schützt. Denn ich bin der Überzeugung, dass es von essentieller Bedeutung ist, auch vor zukünftigen Angriffsmethoden geschützt zu sein. In meinen Augen ist die Zukunft bereits jetzt mit Quantencomputern angebrochen.
+Die Entscheidung für einen derart komplexen Verschlüsselungs-Stack fiel aufgrund des hohen Stellenwerts von Sicherheit und Privatsphäre innerhalb meines Messengers. Dementsprechend wurde ein Algorithmus integriert, der auch gegenüber Angriffen durch Quantencomputer zuverlässig ist. Es ist sehr wichtig, gegen zukünftige Angriffsmethoden so gut wie möglich geschützt zu sein.
 \\
-Ich habe mich für den CRYSTAL-Dilithium-Algorithmus entschieden, da er von NIST empfohlen wird. \cite{nist-recomedation}
-\subsubsection{Erstellung des Entschlüsselungs Modules}
-Mein Ziel war es, ein möglichst modulares Entschlüsselungsmodul zu erstellen. Aus diesem Grund plante ich, das Modul mit einer Vielzahl von Funktionen zu schreiben, um es mir zu ermöglichen, mein Verschlüsselungsmodul in einem anderen Go-Paket zu importieren und zu nutzen.
-\subsubsection{Key Pair Erstellung}
-Ich muss zunächst zwei verschiedene Key-Paare für ECC und Dilithium generieren, unter Verwendung der nachfolgenden Funktionen:
+Die Wahl fiel auf den CRYSTAL-Dilithium-Algorithmus, da dieser vom NIST empfohlen wird. \cite{nist-recomedation}
+\subsubsection{Erstellung des Entschlüsselungsmoduls}
+Das Ziel bestand darin, ein möglichst modulares Entschlüsselungsmodul zu erstellen. Daher war geplant, das Modul mit zahlreichen Funktionen zu schreiben, um es in einem anderen Go-Paket importieren und verwenden zu können.
+\subsubsection{Erzeugung des Schlüsselpaars}
+Zunächst mussten zwei verschiedene Schlüsselpaare für ECC und Dilithium unter Verwendung der folgenden Funktionen generiert werden:
 \begin{lstlisting}[language=Go]
 func GenerateECCKeyPair(curve elliptic.Curve) (*ecdsa.PrivateKey,
-                                               *ecdsa.PublicKey, 
+                                               *ecdsa.PublicKey,
                                                error) {
-	privateKey, err := ecdsa.GenerateKey(curve, rand.Reader)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	publicKey := &privateKey.PublicKey
-
-	return privateKey, publicKey, nil
+    privateKey, err := ecdsa.GenerateKey(curve, rand.Reader)
+    if err != nil {
+        return nil, nil, err
+    }
+    publicKey := &privateKey.PublicKey
+    return privateKey, publicKey, nil
 }
 
 func GenerateDilithiumKeyPair(modeName string) (dilithium.PublicKey,
-                                                dilithium.PrivateKey, 
+                                                dilithium.PrivateKey,
                                                 error) {
-	mode := dilithium.ModeByName(modeName)
-	if mode == nil {
-		return nil, nil, fmt.Errorf("mode not supported")
-	}
-
-	publicKey, privateKey, err := mode.GenerateKey(rand.Reader)
-	if err != nil {
-		return nil, 
-                       nil,
-                       fmt.Errorf("error generating key pair: %v", err)
-	}
-
-	return publicKey, privateKey, nil
+    mode := dilithium.ModeByName(modeName)
+    if mode == nil {
+        return nil, nil, fmt.Errorf("mode not supported")
+    }
+    publicKey, privateKey, err := mode.GenerateKey(rand.Reader)
+    if err != nil {
+        return nil,
+            nil,
+        fmt.Errorf("error generating key pair: %v", err)
+    }
+    return publicKey, privateKey, nil
 }
 \end{lstlisting}
-Dieser Code erzeugt zwei Key Pairs und gibt sie mir zurück, damit ich sie in einer Variablen speichern und später zur Signierung von Nachrichten verwenden kann. Wie aus dem Code ersichtlich, geben beide Funktionen jeweils drei Werte zurück, nämlich den Private- bzw. den PublickKey und einen Fehler, falls ein solcher auftreten würde.
-\subsubsection{Unterschrift}
-Die folgenden Funktionen dienen der Signatur von Nachrichten, um sicherzustellen, dass diese tatsächlich von der Person gesendet wurden, von der man annimmt, dass sie sie gesendet hat. Es handelt sich dabei um zwei Funktionen:
+Dieser Code generiert zwei Schlüsselpaare und gibt sie zurück, sodass sie in einer Variablen gespeichert und später zum Signieren von Nachrichten verwendet werden können. Wie aus dem Code ersichtlich, geben beide Funktionen jeweils drei Werte zurück: den PrivateKey bzw. den PublicKey und einen Fehler, falls einer aufgetreten ist.
+\subsubsection{Signaturfunktionen}
+Die folgenden Funktionen ermöglichen die Signierung von Nachrichten, um zu gewährleisten, dass diese tatsächlich vom vermeintlichen Sender stammen. Dabei handelt es sich um zwei Funktionen:
 \begin{lstlisting}[language=Go]
 func SignEcc(privateKey *ecdsa.PrivateKey, messageHash []byte) ([]byte,
                                                                 error) {
@@ -140,7 +138,7 @@ func SignDilithium(
 	return mode.Sign(privateKey, msg), signatureSize, nil
 }
 \end{lstlisting}
-Bei den beiden zuvor genannten Funktionen besteht ein erheblicher Unterschied, insbesondere bei der SignEcc-Funktion. Hierbei unterzeichne ich nicht direkt die Nachricht selbst, sondern den Hashwert, der mir von der Funktion, die auf dem Blake2b-Algorithmus basiert, ausgegeben wird. Die Nachfolgende Funktion ist meine Implementation davon:
+Zwischen den beiden oben genannten Funktionen besteht ein beachtlicher Unterschied, insbesondere in Bezug auf die SignEcc-Funktion. Hier wird nicht die Nachricht selbst direkt signiert, sondern der Hashwert, welcher von der auf dem Blake2b-Algorithmus basierenden Funktion zurückgegeben wird. Die folgende Funktion stellt die Implementierung hiervon dar:
 \begin{lstlisting}
 func CalculateHash(message []byte) []byte {
 	hash, err := blake2b.New256(nil)
@@ -152,54 +150,51 @@ func CalculateHash(message []byte) []byte {
 	return hash.Sum(nil)
 }
 \end{lstlisting}
-\subsection{Erstellung einer Sidebar mit Gravatars: Erfahrungen und Ergebnisse}
-Ich habe ein Template für die Sidebar erstellt, welche mit Gravatars gefüllt ist, um zu sehen, ob die Sidebar mit Profilbildern gut aussieht. Die Arbeit an der Sidebar war komplex, da ich zuvor noch keine Erfahrung mit der Erstellung von Sidebar-Elementen mittels \hyperref[glo:html1]{\(HTML^{[a]}\)}, \hyperref[glo:css]{\(CSS^{[b]}\)}, \hyperref[glo:js]{\(JS^{[c]}\)} und GO hatte. Meines Erachtens ist das Ergebnis jedoch sehr gelungen.
+\subsection{Entwicklung einer Sidebar mit Gravatars: Erfahrungen und Ergebnisse}
+Eine Vorlage für eine Sidebar wurde entwickelt und mit Gravatars bestückt, um zu evaluieren, ob das Interface mit Profilbildern ansprechend wirkt. Die Realisierung der Sidebar stellte eine Herausforderung dar, da bisher keine Erfahrungen mit der Erstellung von Sidebar-Elementen mittels \hyperref[glo:html1]{\(HTML^{[a]}\)}, \hyperref[glo:css]{\(CSS^{[b]}\)}, \hyperref[glo:js]{\(JS^{[c]}\)} und GO vorhanden waren. Das Resultat wurde jedoch als äusserst zufriedenstellend erachtet.
 \subsection{Design}
-\subsubsection{Tool}
-Ich habe mir verschiedene Design-Umgebungen im Internet angesehen und bin auf zwei Vergleichslisten \cite{figma-entschied-1}\cite{figma-entschied-2} gestossen, auf denen 17 bzw. 6 Design-Tools miteinander verglichen wurden. Nachdem ich festgestellt habe, dass Figma auf beiden Listen aufgeführt ist, habe ich mich für diese Design-Plattform entschieden.
-Ich habe herausgefunden, dass Figma auch auf Linux installiert werden kann, wie ich auf der folgenden Website \cite{figma-linux} erfahren habe. Allerdings muss ich gestehen, dass es sich bei Figma um proprietäre Software handelt, was bedauerlich ist.
+\subsubsection{Werkzeug}
+Es wurden verschiedene Designumgebungen im Internet angesehen. Hierbei fielen zwei Vergleichslisten \cite{figma-entschied-1}\cite{figma-entschied-2} auf, auf denen 17 bzw. 6 Designtools miteinander verglichen wurden. Nachdem festgestellt wurde, dass Figma auf beiden Listen aufgeführt ist, wurde sich für diese Designplattform entschieden.
+Wie im Wiki von Arch Linux \cite{figma-linux} beschrieben, ist es auch möglich, Figma auf Linux zu instalieren. Im Gegensatz zum grundsätzlichen Vorgehen nur OpenSource-Software zu verwenden, ist Figma allerdings proprietäre Software. 
 \subsubsection{Arbeit}
-Ich habe mein GUI zunächst mit dem spezialisierten Design-Tool namens Figma erstellt. Zuvor hatte ich mir das Tool noch nie angesehen, sodass ich es von Grund auf lernen musste. Figma ist äusserst vielseitig und bietet viele nützliche Tools, die beim Designen helfen.
-Um das Tool kennenzulernen, habe ich ein Demo-Interface erstellt, das auf einem Tutorial \cite{figma-tutorial} basierte. Das Tutorial ermöglichte es mir, die meisten Funktionen des Tools innerhalb eines Morgens zu erlernen und zu nutzen.
+Das GUI wurde zunächst mit dem spezialisierten Designtool "Figma" erstellt. Da das Tool zuvor noch nie benutzt worden war, musste es von Grund auf erlernt werden. Figma erwies sich als äusserst vielseitig und bot viele nützliche Werkzeuge, die bei der Gestaltung hilfreich waren.
+Um das Tool kennenzulernen, habe ich eine Demo-Schnittstelle erstellt, die auf einem Tutorial \cite{figma-tutorial} basiert. Das Tutorial ermöglichte es mir, die meisten Funktionen des Tools innerhalb eines Vormittags zu lernen und zu nutzen. 
 \subsection{Server}
-\subsubsection{Warum ich lange Zeit mit WebSockets gearbeitet habe}
-Ich habe mich für einen Server entschieden, der WebSockets verwendet, aus einer Vielzahl von Gründen.\\
-Einige davon sind:  \cite{fette2011websocket}\cite{gupta2017websockets}
-            \begin{enumerate}
-                \item Nahtlose Integration mit Web-Technologien: Da WebSockets auf dem Web-Standard aufbauen, gestaltet sich ihre Integration in Webanwendungen mühelos und gewährleistet eine konsistente Kommunikation über verschiedene Plattformen hinweg.
-                \item Bidirektionale Vollduplex-Kommunikation: Im Unterschied zu HTTP ermöglichen WebSockets eine bidirektionale, vollduplexe Kommunikation zwischen Client und Server. Dies befähigt den Messenger-Dienst zur Echtzeitdatenübertragung und verbessert die Interaktivität zwischen Nutzern.
-                \item Geringerer Overhead: Im Gegensatz zu HTTP-Polling oder Long-Polling-Techniken benötigen WebSockets nach dem Handshake keine zusätzlichen HTTP-Header für jede Nachricht und verbrauchen somit weniger Bandbreite.
-                \item Verbindungszustand: Anders als HTTP, das zustandslos ist, bewahrt WebSockets einen Verbindungszustand bei, wodurch die Kommunikation effizienter wird und die Latenzzeit reduziert wird.
-                \item Überwindung von Firewalls und Proxies: WebSockets können ohne Schwierigkeiten über Firewalls und Proxies kommunizieren, da sie auf dem HTTP-Upgrade-Mechanismus aufbauen, was die Einrichtung und Verwendung von Messenger-Diensten erleichtert.
-                \item Multiplexing und Priorisierung: WebSockets unterstützen das Multiplexing von mehreren Nachrichtenströmen über eine einzige Verbindung, wodurch die Netzwerkauslastung verringert und die Kommunikationsleistung verbessert wird.
-                \item Standardisierung  \cite{8757486}: WebSockets sind ein weithin verbreiteter und standardisierter Kommunikationsmechanismus, der die Implementierung und Integration erleichtert.
-                \item Skalierbarkeit: Durch die Nutzung der WebSockets-Technologie kann mein Messenger-Dienst einfach und effizient skaliert werden, um eine grosse Anzahl gleichzeitiger Benutzer zu unterstützen.
-                \item Echtzeit-Synchronisation: Dank WebSockets kann eine Echtzeit-Synchronisation realisiert werden, die den Nutzern die kontinuierliche Nutzung der Applikation ohne das ständige Neuladen ermöglicht, um eine neue Nachricht zu erhalten.
-            \end{enumerate}
-Eine Alternative zum WebSocket stellt das TCP/IP-Modell dar. Jedoch geht mit dessen Verwendung das Risiko von Verbindungsabbrüchen und Paketverlusten einher. Im Gegensatz dazu erfordern WebSockets geringere Ressourcen und sind aufgrund ihrer Einzelverbindung einfacher umzusetzen. Trotzdem können beide Protokolle in bestimmten Anwendungsfällen nützlich sein und ihre Eignung hängt von den spezifischen Anforderungen der jeweiligen Anwendung ab.
-\subsubsection{Warum ich mich letztendlich für WebRTC anstelle von Websockets entschieden habe.}
-WebRTC \cite{webrtc-website} bietet nicht nur zahlreiche Funktionen wie beispielsweise Voice- und Videotelefonie sowie das Übertragen von Dateien und Nachrichten über die WebRTC Data Channels, sondern verfügt auch über eine integrierte Verschlüsselungs- \cite{rfc8829} und Authentifizierungsmöglichkeit. Darüber hinaus ist WebRTC auch P2P, was bedeutet, dass keine Server erforderlich sind und die Nachrichten nur auf den Handys der Mitglieder gespeichert werden. \\
-Für die Voice- und Videotelefonie können Sie sich bei Matrix umschauen, da sie auch WebRTC für diese Funktionen nutzen. \cite{matrix-website}\\
-Für den Nachrichtenaspekt können Sie sich hier \cite{webrtc-msg} umschauen. Hier ist eine beispielhafte Implementierung, um Nachrichten über den Data Channel zu übertragen, wodurch mir bewusst ist, dass es funktionieren kann.
-\subsection{Entwicklung der Server Software}
-Für mein Server-Modell habe ich zunächst einen simplen Chatroom erstellt, in dem bis zu 16 Personen gleichzeitig teilnehmen können. Da ein Chatroom jedoch lediglich eine Chat-Funktion bereitstellt, musste ich den Code modifizieren, um für jeden Chat einen eigenen privaten Chatraum zu erstellen. Des Weiteren hatte mein einfacher Chatraum keine Verschlüsselung, die ich hinzufügen musste. Dies war jedoch kein Problem, da ich meinen Verschlüsselungs-Stack bereits zwei Wochen zuvor äusserst modular geschrieben hatte, was mir in diesem Fall sehr zugutekam.
-\subsubsection{WebRTC messaging Implemntieren}
-Um die Implementierung von WebRTC-Messaging zu realisieren, habe ich den in JavaScript verfassten Quellcode \cite{webrtc-messegaing-example-js} in Go-Code umgewandelt, der von meinem Programm interpretiert werden kann.
-\subsection{WebRTC vs. Websocket Code}
-Die Disparität zwischen Websockets und WebRTC erwies sich für mich als erheblich, da ich bis zu diesem Zeitpunkt noch keine Erfahrungen mit WebRTC gesammelt hatte. Im Nachfolgenden beabsichtige ich, die Unterschiede zu verdeutlichen, beginnend mit der Darstellung meiner ursprünglichen Implementierung von Websockets, gefolgt von meiner Umsetzung von WebRTC, für die ich letztlich optierte.
+\subsubsection{Weshalb lange Zeit mit WebSockets gearbeitet wurde}
+Ich habe mich aus mehreren Gründen für einen Server entschieden, der WebSockets verwendet. Einige davon sind: \cite{fette2011websocket}\cite{gupta2017websockets} 
+\begin{enumerate}
+    \item Nahtlose Integration mit Webtechnologien: Da WebSockets auf Webstandards basieren, lässt sich ihre Integration in Webanwendungen einfach gestalten und gewährleistet eine konsistente Kommunikation über verschiedene Plattformen hinweg.
+    \item Bidirektionale Vollduplex-Kommunikation: Im Gegensatz zu HTTP ermöglichen WebSockets eine bidirektionale, vollduplexe Kommunikation zwischen Client und Server. Dies ermöglicht meinem Messengerdienst Echtzeitdatenübertragung und verbessert die Interaktivität zwischen Benutzern.
+    \item Geringerer Overhead: Im Gegensatz zu HTTP-Polling oder Long-Polling-Techniken benötigen WebSockets nach dem Handshake keine zusätzlichen HTTP-Header für jede Nachricht, was weniger Bandbreite verbraucht.
+    \item Verbindungszustand: Im Gegensatz zu HTTP, das zustandslos ist, bewahren WebSockets einen Verbindungszustand, wodurch die Kommunikation effizienter wird und die Latenzzeit verringert wird.
+    \item Überwindung von Firewalls und Proxies: WebSockets können problemlos über Firewalls und Proxies kommunizieren, da sie auf dem HTTP-Upgrade-Mechanismus basieren, was die Einrichtung und Verwendung von Messenger-Diensten erleichtert.
+    \item Multiplexing und Priorisierung: WebSockets unterstützen das Multiplexing von mehreren Nachrichtenströmen über eine einzige Verbindung, was die Netzwerkbelastung verringert und die Kommunikationsleistung verbessert.
+    \item Standardisierung \cite{8757486}: WebSockets sind ein weit verbreiteter und standardisierter Kommunikationsmechanismus, der die Implementierung und Integration erleichtert.
+    \item Skalierbarkeit: Durch die Nutzung der WebSockets-Technologie kann mein Messenger-Dienst einfach und effizient skaliert werden, um eine grosse Anzahl gleichzeitiger Benutzer zu unterstützen.
+    \item Echtzeitsynchronisation: Mit WebSockets kann eine Echtzeitsynchronisation erreicht werden, die den Benutzern die kontinuierliche Nutzung der Anwendung ermöglicht, ohne dass sie ständig neu laden müssen, um eine neue Nachricht zu erhalten.
+\end{enumerate}
+Eine Alternative zu WebSockets stellt das TCP/IP-Modell dar. Allerdings besteht bei dessen Verwendung das Risiko von Verbindungsabbrüchen und Paketverlust. Im Gegensatz dazu benötigen WebSockets weniger Ressourcen und sind aufgrund ihrer Einzelverbindung einfacher zu implementieren. Dennoch können beide Protokolle in bestimmten Anwendungsfällen nützlich sein und ihre Eignung hängt von den spezifischen Anforderungen der jeweiligen Anwendung ab.
+\subsubsection{Warum ich mich letztendlich für WebRTC anstelle von Websockets entschieden habe}
+WebRTC \cite{webrtc-website} bietet nicht nur zahlreiche Funktionen wie zum Beispiel Sprach- und Videotelefonie sowie das Übertragen von Dateien und Nachrichten über die WebRTC Data Channels, sondern hat auch eine eingebaute Verschlüsselungs- \cite{rfc8829} und Authentifizierungsmöglichkeit. Darüber hinaus ist WebRTC auch \hyperref[glo:p2p]{\(P2P^{[h]}\)}, was bedeutet, dass keine Server benötigt werden und die Nachrichten nur auf den Handys der Mitglieder gespeichert werden. Für die Sprach- und Videotelefonie können Sie sich bei Matrix umschauen, da sie auch WebRTC für diese Funktionen nutzen \cite{matrix-website}. Für den Nachrichtenaspekt können Sie sich hier \cite{webrtc-msg} umschauen. 
+\subsection{Entwicklung der Server-Software}
+Für mein Server-Modell habe ich zunächst einen einfachen Chatroom erstellt, in dem bis zu 16 Personen gleichzeitig teilnehmen können. Da ein Chatroom jedoch nur eine Chatfunktion bietet, musste ich den Code ändern, um für jeden Chat einen eigenen privaten Chatroom zu erstellen. Darüber hinaus hatte mein einfacher Chatroom keine Verschlüsselung, die ich hinzufügen musste. Dies war jedoch kein Problem, da ich meinen Verschlüsselungs-Stack bereits zwei Wochen zuvor sehr modular geschrieben hatte, was mir in diesem Fall sehr zugute kam.
+\subsubsection{WebRTC Messaging Implementieren}
+Um die Implementierung von WebRTC-Messaging zu realisieren, habe ich den in JavaScript geschriebenen Quellcode \cite{webrtc-messegaing-example-js} in Go-Code umgewandelt, der von meinem Programm interpretiert werden kann.
+\subsection{WebRTC vs. WebSocket Code}
+Der Unterschied zwischen Websockets und WebRTC war für mich erheblich, da ich bis dato noch keine Erfahrung mit WebRTC gemacht hatte. Im Folgenden möchte ich die Unterschiede darlegen, beginnend mit der Darstellung meiner ursprünglichen Implementierung von Websockets, gefolgt von meiner Umsetzung von WebRTC, für die ich mich schliesslich entschieden habe.
 \subsubsection{Websockets}
-Die Implementierung von Websockets stellte sich für mich als unerfahrenen Entwickler von Netzwerkanwendungen zunächst als Herausforderung dar, da mir die notwendige Erfahrung fehlte. Jedoch erleichterte mir die Websocket-Bibliothek \cite{websocket-lib-nhooyr} die Aufgabe, einen Gruppen-Chat-Raum zu erstellen, obwohl mein eigentlicher Ziel eher in der Gestaltung eines P2P-Messengers lag. Darüber hinaus ist die genannte Websocket-Implementierung nicht die am weitesten verbreitete; vielmehr wird die Implementierung hier \cite{websocket-lib-gorrila} am häufigsten genutzt. Allerdings halte ich das für ein Problem, da sie am 09.12.2023 archiviert wurde, weshalb ich mich letztlich dagegen entschied, diese Bibliothek zu verwenden.
+Die Implementierung von Websockets stellte sich für mich als unerfahrenen Entwickler von Netzwerkanwendungen zunächst als eine Herausforderung dar, da mir die notwendige Erfahrung fehlte. Die Websocket-Bibliothek \cite{websocket-lib-nhooyr} erleichterte mir jedoch die Aufgabe, einen Gruppen-Chat-Raum zu erstellen, obwohl mein eigentliches Ziel eher darin lag, einen P2P-Messenger zu erstellen. Darüber hinaus ist die genannte Websocket-Implementierung nicht die am weitesten verbreitete; diese findet sich vielmehr hier \cite{websocket-lib-gorrila}. Allerdings halte ich dies für problematisch, da sie am 09.12.2023 archiviert wurde, weshalb ich mich schliesslich dagegen entschied, diese Bibliothek zu verwenden.
 \subsection{Backend-as-a-Service (BaaS): Technologieauswahl und Implementierungsstrategien}
 \subsubsection{Umstellung auf die Pusher-Plattform: Beweggründe und Vorteile}
-Ich habe in der Vergangenheit eine beträchtliche Zeitspanne damit verbracht, mich mit der Konzeption einer proprietären Server-Plattform zu befassen. Allerdings bin ich durch eine steigende Disparität zwischen meinem zeitlichen Aufwand und den zur Verfügung stehenden Ressourcen konfrontiert worden, was mich dazu veranlasste, meine Prioritäten neu zu bewerten. \\\\
-Letztendlich habe ich dazu optiert, eine bereits vorentwickelte Plattform zu adaptieren, die es ermöglicht, Änderungen an meinen Daten durch einfache API-Interaktionen vorzunehmen. Diese Option präsentiert sich als eine signifikante Effizienzsteigerung gegenüber dem vorigen Ansatz, indem sie die administrative Belastung erheblich reduziert und gleichzeitig eine robuste Funktionalität gewährleistet. \\\\
-Die Plattform, für die ich mich entschieden habe, hört auf den Namen 'Pusher'. Pusher stellt eine optimalisierte Lösung dar, die eine nahtlose Integration und ein effektives Datenmanagement ermöglicht, was meine Bedürfnisse und Erwartungen in diesem Kontext perfekt erfüllt.
+In der Vergangenheit wurde eine beträchtliche Zeitspanne darauf verwendet, eine proprietäre Server-Plattform zu konzipieren. Allerdings wurde durch eine steigende Disparität zwischen zeitlichem Aufwand und zur Verfügung stehenden Ressourcen eine Neubewertung der Prioritäten notwendig.\\\\
+Schlussendlich wurde die Entscheidung getroffen, eine bereits vorentwickelte Plattform zu adaptieren, welche die Möglichkeit bietet, Änderungen an den Daten durch einfache API-Interaktionen durchzuführen. Diese Option manifestiert sich als erhebliche Effizienzsteigerung im Vergleich zum vorherigen Ansatz, da sie die administrative Belastung stark reduziert und gleichzeitig eine robuste Funktionalität sicherstellt.\\\\
+Die gewählte Plattform, 'Pusher', stellt eine optimale Lösung dar, die eine nahtlose Integration und effizientes Datenmanagement ermöglicht und somit die Anforderungen und Erwartungen in diesem Kontext vollständig erfüllt.
 \subsubsection{Die Wahl von Supabase für den Nutzerauthentifizierungsprozess: Flexibilität, Skalierbarkeit und Datensicherheit}
-Zur Implementierung des Nutzerauthentifizierungsprozesses erschien mir der Einsatz einer Open-Source-Alternative zu Google Firebase, allgemein als Supabase bekannt, als überaus adäquat. Diese Entscheidung fusst auf einer Vielzahl von Faktoren, insbesondere jedoch auf der beeindruckenden Flexibilität und Skalierbarkeit von Supabase, gerade im Hinblick auf die Übertragungskapazitäten in der gebührenfreien Ausführung.\\\\
-Supabase brilliert durch seine Fertigkeit, substantielle Datenmengen zu transferieren, wodurch meine Prämissen bezüglich der Datenverwaltung in beachtlichem Masse erfüllt werden. Ferner offeriert es eine robuste und sichere Plattform für die Nutzerauthentifizierung, die von essentieller Bedeutung für jedwedes zeitgenössische digitale Produkt ist.\\\\
-Es entspricht meinem primären Vorhaben, insbesondere im Kontext der Nutzerauthentifizierung auf Supabase zu vertrauen. Es verspricht eine nahtlose und intuitive Benutzererfahrung, die sowohl dem Endnutzer als auch dem Entwickler zugutekommt. Mit der Verwendung von Supabase bin ich in der Lage, die Authentifizierung meiner Nutzer sicher und effizient zu gewährleisten, wobei ein besonderes Augenmerk auf Datensicherheit und Benutzerfreundlichkeit liegt.
-\subsection{Nutzerauthentifizierung implementation in JS, für SupaBase}
-Zur Authentifizierung eines Anwenders mittels JS für SupaBase erweist es sich als unabdingbar, zuerst einen SupaBase-Client zu konstituieren. Die Verwirklichung dieser Prämisse lässt sich dem untenstehenden Quellcode entnehmen, der als tragendes Gerüst für den fortlaufenden JS-Code in dieser Sektion dient. Dieser JS-Code wurde von hier \cite{supabase-js-client-new-addititional-parameters} adaptiert, sodass er die API-Schlüssel von meinem unmittelbar darauf folgenden Go-Code extrahieren kann:
+Zur Implementierung des Nutzerauthentifizierungsprozesses wurde der Einsatz einer Open-Source-Alternative zu Google Firebase, bekannt als Supabase, als äusserst adäquat erachtet. Diese Entscheidung basiert auf einer Vielzahl von Faktoren, insbesondere aber auf der beeindruckenden Flexibilität und Skalierbarkeit von Supabase, gerade hinsichtlich der Übertragungskapazitäten in der gebührenfreien Ausführung.\\\\
+Supabase brilliert durch seine Fertigkeit, substantielle Datenmengen zu transferieren, wodurch die Prämissen hinsichtlich der Datenverwaltung in beachtlichem Masse erfüllt werden. Darüber hinaus bietet es eine robuste und sichere Plattform für die Nutzerauthentifizierung, welche für jedes moderne digitale Produkt von essentieller Bedeutung ist.\\\\
+Es entspricht dem primären Vorhaben, insbesondere im Kontext der Nutzerauthentifizierung auf Supabase zu vertrauen. Es verspricht eine nahtlose und intuitive Benutzererfahrung, die sowohl dem Endnutzer als auch dem Entwickler zugutekommt. Durch die Nutzung von Supabase wird die Authentifizierung der Nutzer sicher und effizient gewährleistet, wobei ein besonderes Augenmerk auf Datensicherheit und Benutzerfreundlichkeit gelegt wird.
+\subsection{Implementierung der Nutzerauthentifizierung in JS für SupaBase}
+Zur Realisierung einer Anwenderauthentifizierung mittels JS für SupaBase offenbart es sich als notwendig, zunächst einen SupaBase-Client zu initiieren. Die Realisierung dieser Prämisse ist im nachfolgenden Quellcode dokumentiert, welcher das Fundament für den weiteren JS-Code in diesem Abschnitt bildet. Der vorgestellte JS-Code ist adaptiert von hier \cite{supabase-js-client-new-addititional-parameters}, um die API-Schlüssel aus dem unmittelbar anschliessenden Go-Code extrahieren zu können.
 \begin{lstlisting}
 import { RetrieveEnvValues } from "../wailsjs/go/main/App.js";
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
@@ -229,7 +224,7 @@ RetrieveEnvValues().then((env) => {
   supabase = createClient(supabaseUrl, supabaseKey, options);
 });
 \end{lstlisting}
-Der im Anschluss präsentierte Go-Code extrahiert die Daten für die in Gebrauch genommenen API-Schlüssel aus einer Datei namens .env. Sie werden in die Struktur mit der Bezeichnung Config eingegliedert und nach Abschluss dieser Operation zurückgegeben:
+Der darauf folgende Go-Code entnimmt die Daten für die verwendeten API-Schlüssel aus einer Datei mit der Bezeichnung .env. Sie werden in die Struktur namens Config integriert und nach Abschluss dieser Operation zurückgegeben:
 \begin{lstlisting}
 import 	"github.com/joho/godotenv"
 
@@ -265,7 +260,7 @@ func (a *App) RetrieveEnvValues() Config {
 	return a.config
 }
 \end{lstlisting}
-Eine exemplarische .env-Datei, abgestimmt auf den vorausgegangenen Go-Code, könnte folgendermassen konstruiert sein. Es sei jedoch angemerkt, dass die im nachstehenden Beispiel genannten Daten keine validen Anmeldedaten darstellen, sie entsprechen lediglich dem korrekten Format:
+Ein beispielhaft konstruiertes .env-File, abgestimmt auf den zuvor dargestellten Go-Code, könnte wie folgt aussehen. Es sei jedoch vermerkt, dass die nachfolgend präsentierten Daten keine gültigen Anmeldeinformationen repräsentieren, sondern lediglich dem korrekten Format entsprechen:
 \begin{lstlisting}
 APP_ID="7911732"
 SECRET="e78d5c1e258ae511ff79"
@@ -276,21 +271,21 @@ eyJ1c2VyX2lkIjoxMjMsInJvbGUiOiJ1c2VyIn0.
 35p_Ah1xy2v1NBIENeSECXVPVm5ydsFhoGcVqQBkRMU"
 SUPABASE_URL="https://cdsuthqrmekqbysvycgl.supabase.co"
 \end{lstlisting}
-Die Implementierung von .env-Dateien in einem Vorhaben stellt eine Massnahme von erheblicher Tragweite dar, speziell hinsichtlich der Verwahrung von Umgebungsvariablen. Diese Variablen verkörpern häufig Konfigurationseinstellungen, die über diverse Umgebungen wie Entwicklung, Test und Produktion variieren können. Der Charme von .env-Dateien liegt in ihrer Fähigkeit, diese Unterschiede auf geordnete und effiziente Weise zu bewältigen.\\\\
-Betrachten wir den Kontext eines öffentlich zugänglichen Repositorys, so gewinnt die Bedeutung der .env-Dateien noch weiter an Profil. Sie fungieren als sicherer Speicherort für sensibles Material wie API-Schlüssel, Datenbank-Anmeldedaten und andere Geheimnisse, die nicht öffentlich preisgegeben werden sollten. Hier tritt eine Filterdatei des Versionskontrollsystems wie .gitignore in Aktion. Durch das Ausschliessen der .env-Dateien aus dem Repository stellen wir sicher, dass diese sensiblen Informationen nicht versehentlich committet und ins Repository gepusht werden, wodurch die Sicherheit des Projekts gewahrt bleibt.\\\\
-Aber die Vorteile von .env-Dateien gehen über die Sicherheit hinaus. Sie vereinfachen zudem den Bereitstellungsprozess. Mit .env-Dateien können unterschiedliche Konfigurationen problemlos verwaltet und zwischen verschiedenen Umgebungen gewechselt werden, was den Bereitstellungsprozess glatter und effizienter gestaltet.\\\\
-Auch im Zusammenwirken von Teammitgliedern erweisen sich .env-Dateien als vorteilhaft. Sie erlauben es jedem Entwickler, seine eigene lokale Konfiguration zu besitzen, ohne die anderen zu beeinflussen, wodurch der Entwicklungsprozess optimiert und ein harmonischeres Arbeitsumfeld gefördert wird.\\\\
-Der Einsatz einer Filterdatei des Versionskontrollsystems (VCS), wie einer .gitignore-Datei, ist eine weitere unerlässliche Praxis, um Datensicherheit zu gewährleisten. Diese Datei dient dazu, die Arten von Dateien zu spezifizieren, die vom VCS nicht verfolgt werden sollten. Indem wir .env-Dateien zur .gitignore-Datei hinzufügen, können wir verhindern, dass sensible Daten versehentlich committet und ins öffentliche Repository gepusht werden. Dies ist ein essenzieller Schritt zur Wahrung der Vertraulichkeit sensibler Informationen wie API-Schlüssel, Datenbank-Anmeldedaten und anderer Geheimnisse.\\\\
-Neben der Verbesserung der Sicherheit trägt der Einsatz einer .gitignore-Datei auch zur Effizienz des Entwicklungsprozesses bei. Sie hilft dabei, das Repository sauber und aufgeräumt zu halten, indem sie Dateien ausschliesst, die für die Funktion des Projekts nicht notwendig sind, wie Logdateien, Cache-Dateien oder persönliche IDE-Einstellungen. Dies erleichtert den Teammitgliedern die Navigation im Repository und die Konzentration auf die relevanten Dateien.\\\\
-Darüber hinaus lässt sich die .gitignore-Datei für jede Umgebung individuell anpassen, was einen flexibleren und massgeschneiderten Ansatz zur Verwaltung von Dateien im Repository ermöglicht. Dies kann besonders nützlich sein in umfangreichen Projekten mit mehreren Entwicklern, die in unterschiedlichen Umgebungen arbeiten.\\\\
-Es ist jedoch anzumerken, dass die .gitignore-Datei kein absolut sicheres Mittel für die Datensicherheit darstellt. Es ist immer noch möglich, dass sensible Daten durchsickern, wenn sie in Dateien enthalten sind, die nicht in der .gitignore-Datei aufgeführt sind. Daher ist es wichtig, den Einsatz einer .gitignore-Datei durch weitere Sicherheitspraktiken zu ergänzen, wie regelmässige Überprüfungen und Reviews des Codebestands, um den höchstmöglichen Datenschutz zu gewährleisten.\\\\
-Abschliessend lässt sich sagen, dass der kombinierte Einsatz von .env-Dateien und einer .gitignore-Datei eine wirkungsvolle Strategie für die Verwaltung umgebungsspezifischer Konfigurationen und den Schutz sensibler Daten darstellt. Es handelt sich um eine Praxis, die sowohl Sicherheit als auch Effizienz fördert, und damit zu einem unverzichtbaren Bestandteil jedes erfolgreichen Entwicklungsprojekts avanciert.
-\subsection{Message Broker}
-Ich habe zwei ganze Tage damit verbracht, einen Message Broker einzurichten. Dieser zeitaufwendige Prozess ergab sich daraus, dass ich zunächst versuchte, ihn auf der Google Cloud zu implementieren. Die Verfügbarkeit von grosszügigen 300 CHF an kostenfreien Credits lockte mich dorthin. Bedauerlicherweise konnte ich mich jedoch aus irgendeinem Grund nicht auf der Instanz einloggen. Aus diesem Grund entschied ich mich schliesslich dazu, den Message Broker eigenhändig in einem Docker-Container zu hosten. Ein Message Broker ist äusserst relevant für einen Messenger, da er die Einrichtung von Message Queues ermöglicht. Diese Queues empfangen Nachrichten und halten sie solange zurück, bis sie zugestellt werden können. Lassen Sie uns das folgende Beispiel betrachten: Die unmittelbar darauf folgende Grafik veranschaulicht einen Produzenten, einen Message Broker-Dienst und einen Konsumenten. In dem anschliessenden Text werde ich die Illustration erläutern. Die dargestellte Illustration zeigt einen Push Message Broker, es gibt jedoch auch den Pull-Ansatz. Der wesentliche Unterschied besteht darin, dass beim Push-Verfahren der Server die Nachrichten kontinuierlich sendet, während der Konsument beim Pull-Verfahren eine Anfrage senden muss, um herauszufinden, ob neue Nachrichten in der Warteschlange vorliegen.\\\\
+Die Implementierung von .env-Dateien in einem Projekt stellt eine Massnahme von erheblicher Bedeutung dar, insbesondere im Hinblick auf die Verwaltung von Umgebungsvariablen. Diese Variablen repräsentieren oftmals Konfigurationseinstellungen, die zwischen verschiedenen Umgebungen wie Entwicklung, Test und Produktion variieren können. Die .env-Dateien brillieren durch ihre Fähigkeit, diese Unterschiede auf organisierte und effiziente Weise zu bewältigen.\\\\
+In Betrachtung des Kontexts eines öffentlich zugänglichen Repositorys gewinnt die Relevanz der .env-Dateien zusätzlich an Bedeutung. Sie fungieren als sicherer Aufbewahrungsort für sensible Informationen wie API-Schlüssel, Datenbank-Anmeldeinformationen und andere Geheimnisse, die nicht öffentlich gemacht werden sollten. Hier kommt die Filterdatei des Versionskontrollsystems, wie .gitignore, zum Einsatz. Durch das Ausklammern der .env-Dateien aus dem Repository wird sichergestellt, dass diese sensiblen Informationen nicht versehentlich committet und ins Repository gepusht werden, wodurch die Sicherheit des Projekts gewahrt bleibt.\\\\
+Aber die Vorteile von .env-Dateien gehen über die Sicherheit hinaus. Sie erleichtern auch den Bereitstellungsprozess. Mit .env-Dateien können unterschiedliche Konfigurationen problemlos verwaltet und zwischen verschiedenen Umgebungen gewechselt werden, was den Bereitstellungsprozess reibungsloser und effizienter gestaltet.\\\\
+Auch im Zusammenspiel von Teammitgliedern erweisen sich .env-Dateien als vorteilhaft. Sie erlauben es jedem Entwickler, seine eigene lokale Konfiguration zu haben, ohne die anderen zu beeinträchtigen, was den Entwicklungsprozess optimiert und ein harmonischeres Arbeitsumfeld fördert.\\\\
+Der Einsatz einer Filterdatei des Versionskontrollsystems (VCS), wie einer .gitignore-Datei, ist eine weitere unverzichtbare Praxis, um Datensicherheit zu gewährleisten. Diese Datei dient dazu, die Arten von Dateien zu spezifizieren, die vom VCS nicht verfolgt werden sollten. Indem .env-Dateien zur .gitignore-Datei hinzugefügt werden, kann vermieden werden, dass sensible Daten versehentlich committet und ins öffentliche Repository gepusht werden. Dies ist ein essenzieller Schritt zur Wahrung der Vertraulichkeit sensibler Informationen wie API-Schlüssel, Datenbank-Anmeldeinformationen und anderer Geheimnisse.\\\\
+Neben der Verbesserung der Sicherheit trägt der Einsatz einer .gitignore-Datei auch zur Effizienz des Entwicklungsprozesses bei. Sie hilft dabei, das Repository sauber und übersichtlich zu halten, indem sie Dateien ausschliesst, die für die Funktion des Projekts nicht notwendig sind, wie Logdateien, Cache-Dateien oder persönliche IDE-Einstellungen. Dies erleichtert den Teammitgliedern die Navigation im Repository und die Konzentration auf die relevanten Dateien.\\\\
+Darüber hinaus kann die .gitignore-Datei für jede Umgebung individuell angepasst werden, was einen flexibleren und massgeschneiderten Ansatz zur Verwaltung von Dateien im Repository ermöglicht. Dies kann besonders nützlich sein in umfangreichen Projekten mit mehreren Entwicklern, die in unterschiedlichen Umgebungen arbeiten.\\\\
+Es ist jedoch zu beachten, dass die .gitignore-Datei kein absolut sicheres Mittel für die Datensicherheit darstellt. Es ist immer noch möglich, dass sensible Daten durchsickern, wenn sie in Dateien enthalten sind, die nicht in der .gitignore-Datei aufgeführt sind. Daher ist es wichtig, den Einsatz einer .gitignore-Datei durch weitere Sicherheitspraktiken zu ergänzen, wie regelmässige Überprüfungen und Reviews des Codebestands, um den höchstmöglichen Datenschutz zu gewährleisten.\\\\
+Zusammenfassend lässt sich sagen, dass der kombinierte Einsatz von .env-Dateien und einer .gitignore-Datei eine effektive Strategie für die Verwaltung umgebungsspezifischer Konfigurationen und den Schutz sensibler Daten darstellt. Es handelt sich um eine Praxis, die sowohl Sicherheit als auch Effizienz fördert, und somit zu einem unverzichtbaren Bestandteil jedes erfolgreichen Entwicklungsprojekts avanciert.
+\subsection{Implementierung des Message Brokers}
+Die Installation eines Message Brokers beanspruchte zwei ganze Tage. Der beträchtliche Zeitaufwand resultierte aus der anfänglichen Versuchsanordnung, diesen auf der Google Cloud zu implementieren. Angesichts der Aussicht auf 300 CHF an gebührenfreien Credits, schien dieser Schritt verführerisch. Bedauerlicherweise erschwerte eine nicht näher definierbare Einschränkung den Zugang zur Instanz. Daher fiel die Entscheidung, den Message Broker manuell in einem Docker-Container zu hosten. Ein Message Broker erweist sich als unverzichtbar für einen Messenger, indem er die Installation von Message Queues ermöglicht. Diese Warteschlangen nehmen Nachrichten auf und bewahren sie bis zur Zustellung. Betrachten wir das folgende Beispiel: Die unmittelbar folgende Abbildung illustriert einen Produzenten, einen Message Broker-Service und einen Konsumenten. Im anschliessenden Textabschnitt erfolgt eine Erläuterung der Darstellung. Die Illustration verdeutlicht einen Push Message Broker, es existiert jedoch auch das Pull-Prinzip. Der grundlegende Unterschied besteht darin, dass beim Push-Verfahren der Server die Nachrichten konstant übermittelt, während der Konsument im Pull-Verfahren eine Anfrage senden muss, um Informationen über neue Nachrichten in der Warteschlange zu erhalten.\\
 \begin{tikzpicture}[
-  box/.style={draw, minimum width=2cm, minimum height=1cm},
-  arrow/.style={->, >=latex, thick},
-  arrow_ack/.style={->, >=latex, thick, red},
+box/.style={draw, minimum width=2cm, minimum height=1cm},
+arrow/.style={->, >=latex, thick},
+arrow_ack/.style={->, >=latex, thick, red},
 ]
 
 % Nodes
@@ -306,11 +301,11 @@ Ich habe zwei ganze Tage damit verbracht, einen Message Broker einzurichten. Die
 \draw[arrow] ([yshift=3mm]broker.east) -- node[midway,above] {1. Push Message} ([yshift=3mm]consumer.west);
 \draw[arrow_ack] ([yshift=-3mm]consumer.west) -- node[midway,below, text=red] {2. ACK (Strikt nur eine Antwort)} ([yshift=-3mm]broker.east);
 
-\end{tikzpicture}\\
-Hier folgen die einzelnen Komponenten und ihre zugehörigen Funktionen:
+\end{tikzpicture}\
+Die einzelnen Komponenten und ihre entsprechenden Funktionen werden im Folgenden erläutert:
 \begin{enumerate}
-    \item \textbf{Producer:} Dieser Akteur repräsentiert das Element, welches Nachrichten kreiert und übermittelt. In der gezeigten Darstellung versendet der Produzent eine Mitteilung an den Message Broker.
-    \item \textbf{Message Broker:} Der Message Broker fungiert als Art Vermittlungsstelle, welche die Nachrichten vom Produzenten in Empfang nimmt und sie in einer Nachrichtenwarteschlange deponiert. Darüber hinaus obliegt ihm die Aufgabe, die Mitteilungen aus der Warteschlange an den Konsumenten weiterzuleiten.
-    \item \textbf{Message Queue:} Sie kann treffend als eine Art Reservoir für Mitteilungen beschrieben werden. Sobald der Produzent eine Mitteilung aussendet, findet diese hier ihren Platz und verweilt, bis sie vom Konsumenten aufgegriffen wird.
-    \item \textbf{Consumer:} Aktionen des Konsumenten: Zunächst empfängt er eine Mitteilung (1. Push-Nachricht) vom Broker und sendet anschliessend eine Bestätigung (2. Bestätigungszeichen, auch als Acknowledgment bekannt), welche signalisiert, dass die Nachricht erfolgreich empfangen wurde (visuell dargestellt durch die rote Linie). Hervorzuheben ist die Tatsache, dass die Bezeichnung "Strikt nur eine Antwort" aufzeigt, dass jeder eingegangenen Nachricht exakt ein Bestätigungszeichen zugeordnet sein muss - weder mehr noch weniger.
+\item \textbf{Producer:} Diese Komponente stellt das Element dar, welches Nachrichten generiert und versendet. In der gezeigten Darstellung übermittelt der Produzent eine Mitteilung an den Message Broker.
+\item \textbf{Message Broker:} Der Message Broker agiert als eine Art Vermittlungsstelle, die die Nachrichten vom Produzenten empfängt und sie in einer Nachrichtenwarteschlange ablegt. Zudem liegt es in seiner Verantwortung, die Mitteilungen aus der Warteschlange an den Konsumenten weiterzuleiten.
+\item \textbf{Message Queue:} Diese kann als eine Art Reservoir für Mitteilungen beschrieben werden. Sobald der Produzent eine Mitteilung aussendet, findet diese hier ihren Platz und verweilt, bis sie vom Konsumenten abgeholt wird.
+\item \textbf{Consumer:} Die Handlungen des Konsumenten: Er empfängt zuerst eine Mitteilung (1. Push-Nachricht) vom Broker und sendet anschliessend eine Bestätigung (2. Bestätigungszeichen, auch als Acknowledgment bekannt), die signalisiert, dass die Nachricht erfolgreich empfangen wurde (visuell dargestellt durch die rote Linie). Besonders hervorzuheben ist die Tatsache, dass die Bezeichnung "Strikt nur eine Antwort" darauf hinweist, dass jeder eingehenden Nachricht genau ein Bestätigungszeichen zugeordnet sein muss - weder mehr noch weniger.
 \end{enumerate}

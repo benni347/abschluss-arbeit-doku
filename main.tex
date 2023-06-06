@@ -4,11 +4,12 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{subcaption}
+\usepackage{pdfpages}
+
 \usepackage{uarial}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,bending,positioning}
-
 
 \usepackage[
 backend=biber,
@@ -44,6 +45,18 @@ defernumbers=true
 \makeatother
 
 \usepackage{hyperref}
+\hypersetup{
+    citecolor=black,
+    citebordercolor=orange,
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Messenger Dokumentation},
+    pdfauthor={Cédric Skwar},
+    pdfpagemode=FullScreen,
+    }
+
 \makeatletter
 \renewcommand\@cite[1]{\hyperlink{cite.#1}{[#1]}}
 \makeatother
@@ -58,7 +71,15 @@ defernumbers=true
 \begin{document}
 \maketitle
 \newpage
-
+\newgeometry{margin=0cm} % Set zero margins for the page
+\begin{figure}[htbp]
+  
+  
+  \includegraphics[width=0.9\textwidth]{txt/pictures/selbst.pdf}
+  
+\end{figure}
+\restoregeometry
+\newpage
 \tableofcontents
 \newpage
 \input{txt/einleitung}
